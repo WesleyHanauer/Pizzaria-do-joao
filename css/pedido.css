@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ff7b005e;
+    color: white;
+  }
+  header h1{
+    margin: auto;
+    font-family: 'Charm', cursive;
+  }
+  header{
+    height: 11%;
+    background-color: #F97E20;
+    display: flex;
+  }
+  #imgUser{
+    margin-right: 2vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    }
+    #containerPedido{
+        background-color: #F97E20;
+        margin: auto;
+        width: 70%;
+        height: 12vh;
+        text-align: center;
+        display: grid;
+        place-items: center;
+        margin-top: 4%;
+        border-radius: 4px;
+    }
+    #containerPedido h1{
+        color: black;
+        font-family:'Charm', cursive;
+    }
+    #dropdown{
+        text-align: center;
+    }
+    #dropdown p{
+        color: black;   
+        font-family: 'Charm', cursive;
+        font-size: larger;
+    }
+    select{
+        width: 25%;
+        font-family: 'Frank Ruhl Libre', serif;
+        font-size: large;
+    }
+    select:hover{
+        cursor: pointer;
+    }
+    #sabores{
+        width: 40%;
+        height: 25vh;
+        margin: auto;
+        color: black;
+        font-family: 'Charm', cursive;
+        display: grid;
+        padding-left: 11%;
+        padding-bottom: 4%;
+    }
+    #left{
+        grid-row: 1;
+        grid-column: 1;
+        padding-right: 50%;
+    }
+    #right{
+        grid-row: 1;
+        grid-column: 2;
+    }
+    #saboresTXT{
+        text-align: center;
+        color: black;
+        font-size: large;
+    }
+    @media only screen and (max-width: 736px) {
+        #sabores{
+            width: 100%;
+        }
+      }
+      
+.button-3 {
+    appearance: none;
+    background-color: #F97E20;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 50%;
+    height: 5vh;
+    margin-bottom: 20%;
+  }
+  
+  .button-3:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .button-3:hover {
+    cursor: pointer;
+    background-color: #F97E20;
+  }
+  
+  .button-3:active {
+    background-color: #F97E20;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }
+      footer{
+        height: 10%;
+        width: 100%;
+        background-color: #F97E20;
+        display: flex;
+        align-items: center;
+        font-family: 'Frank Ruhl Libre', serif;
+        position: absolute;
+    }
+    #leftFooter{
+        margin-left: 1vw;
+    }
+    #rightFooter{
+        position: absolute;
+        right: 1vw;
+    }

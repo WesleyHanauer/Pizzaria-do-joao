@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ff7b005e;
+    color: white;
+  }
+  header h1{
+    margin: auto;
+  }
+  header{
+    height: 11%;
+    background-color: #F97E20;
+    font-family: 'Charm', cursive;
+    display: flex;
+  }
+  #listaTXT{
+    color: black;
+    font-family: 'Frank Ruhl Libre', serif;
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+  }
+  table{
+    color: black;
+    margin: auto;
+    width: 85%;
+    font-family: 'Frank Ruhl Libre', serif;
+    border: 1px solid rgb(0, 0, 0);
+  }
+  table th, td{
+    height: 4vh;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  footer{
+    height: 10%;
+    width: 100%;
+    background-color: #F97E20;
+    display: flex;
+    align-items: center;
+    font-family: 'Frank Ruhl Libre', serif;
+    position: absolute;
+    bottom: 0;
+}
+#leftFooter{
+    margin-left: 1vw;
+}
+#rightFooter{
+    position: absolute;
+    right: 1vw;
+}

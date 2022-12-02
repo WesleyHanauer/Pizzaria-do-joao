@@ -1,0 +1,204 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ff7b005e;
+    color: white;
+  }
+  
+  nav {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: .2em 2em;
+    float: right;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: .2em .7em;
+  }
+  
+  nav a {
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    font-family: Ubuntu;
+    font-size: 1.15em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    transition: .25s ease-in-out;
+  }
+  
+  nav a:hover {
+    color: rgb(220, 120, 0);
+  }
+  
+  .nav-bg {
+    content: '';
+    position: absolute;
+    display: block;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgb(50, 50, 50);
+    transition: .45s ease-in-out;
+  }
+  
+  .bg-hidden {
+    top: -100%;
+    opacity: 0;
+  }
+  
+  .bg-visible {
+    top: 0;
+    opacity: 1;
+  }
+  
+  h1 {
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: rgb(50, 50, 50);
+    background: url(https://www.foodconnection.com.br/sites/foodconnection.com/files/Dia%20da%20Pizza%20conhea%20a%20trajetria%20do%20prato.png) no-repeat 50% 50% fixed;
+    background-size: 130%;
+    overflow: hidden;
+  }
+  
+  .hero h1{
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    padding: .3em;
+    font-size: 3em;
+    font-weight: lighter;
+    font-family: 'Charm', cursive;
+  }
+  
+  .hero img{
+  margin: auto;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  margin-top: 15vh;
+  }
+
+  .content-wrapper {
+    width: 80%;
+    padding: 1em 10%;
+  }
+  
+  .content-wrapper h1 {
+    margin: 0;
+    color: rgb(255, 255, 255);
+    font-family: 'Charm', cursive;
+  }
+  
+  .content-wrapper p {
+    font-family: "Open Sans";
+    text-indent: 1.5em;
+  }
+
+  #cardapio{
+    margin: auto;
+    background-color: #F97E20;
+    width: 80%;
+    height: auto;
+    border-radius: 50px;
+    padding-bottom: 2vh;
+  }
+  #cardapio h2{
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Frank Ruhl Libre', serif;
+  }
+  #cardapio ul{
+    font-size: 2vw;
+    font-family: 'Frank Ruhl Libre', serif;
+  }
+  #cardapio li{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.2vw;
+    margin-left: 3vw;
+  }
+  @media only screen and (max-width: 736px) {
+    #cardapio li{
+        font-size: 2vw;
+      }
+  }
+  #cardapio button{
+    font-family: 'Frank Ruhl Libre', serif;
+    cursor: pointer;
+    margin: auto;
+    display: grid;
+    place-items: center;
+  }
+.button-3 {
+  appearance: none;
+  background-color: rgba(255, 0, 0, 0.82);
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: rgb(179, 1, 1);
+}
+
+.button-3:active {
+  background-color: #FF0000;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+footer{
+    height: 10%;
+    width: 100%;
+    background-color: #F97E20;
+    display: flex;
+    font-family: 'Frank Ruhl Libre', serif;
+}
+#leftFooter{
+    margin-left: 1vw;
+}
+#rightFooter{
+    position: absolute;
+    right: 1vw;
+}
