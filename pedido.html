@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
     <meta name="author" content="Wesley Hanauer & Sanny Belisário">
     <meta charset="UTF-8">
@@ -9,50 +10,124 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Charm&family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/pedido.css">
+    <link rel="stylesheet" href="/pedido.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Pedido</title>
 </head>
+
 <body>
     <header>
-        <div id="imgPizza"><img src="imagens/pizza.svg" alt=""></div>
-        <div></div><h1>Pizzaria do João</h1></div>
-        <div id="imgUser"><a href=""><img src="imagens/user.svg" alt=""></a></div>
+        <div id="imgPizza"><img src="/pizza.svg" alt=""></div>
+        <div></div>
+        <h1>Pizzaria do João</h1>
+        </div>
+        <div id="imgUser"><a href=""><img src="/user.svg" alt=""></a></div>
     </header>
     <div id="containerPedido">
         <h1>Monte seu pedido</h1>
     </div>
     <div id="dropdown">
         <p>Massa</p>
-        <select name="Massa" id="">
-            <option value="volvo">Massa comúm</option>
-            <option value="saab">Massa integral</option>
-            <option value="mercedes">Massa temperada</option>
+        <select name="Massa" id="massa">
+            <option value="comum">Comum</option>
+            <option value="integral">Integral</option>
+            <option value="temperada">Temperada</option>
         </select>
         <p>Borda</p>
-        <select name="Borda" id="">
-            <option value="volvo">Cheddar</option>
-            <option value="saab">Catupiry</option>
-            <option value="mercedes">Chocolate</option>
+        <select name="Borda" id="borda">
+            <option value="cheddar">Cheddar</option>
+            <option value="catupiry">Catupiry</option>
+            <option value="chocolate">Chocolate</option>
         </select>
     </div>
-    <div id="saboresTXT"><p>Sabores</p></div>
+    <div id="saboresTXT">
+        <p>Sabores</p>
+    </div>
     <div id="sabores">
         <div id="left">
-            <div><input type="checkbox" name="4 queijos" id="">4 queijos</div>
-            <div><input type="checkbox" name="Frango com catupiry" id="">Frango com catupiry</div>
-            <div><input type="checkbox" name="Calabresa" id="">Calabresa</div>
+            <div><input type="checkbox" name="4 queijos" id="4 queijos">4 queijos</div>
+            <div><input type="checkbox" name="Frango com catupiry" id="Frango com catupiry">Frango com catupiry</div>
+            <div><input type="checkbox" name="Calabresa" id="Calabresa">Calabresa</div>
         </div>
         <div id="right">
-            <div><input type="checkbox" name="Filé com cheddar" id="">Filé com cheddar</div>
-            <div><input type="checkbox" name="Portuguesa" id="">Portuguesa</div>
-            <div><input type="checkbox" name="Margherita" id="">Margherita</div>
-            <div><input type="checkbox" name="Lombinho" id="">Lombinho</div>
+            <div><input type="checkbox" name="Filé com cheddar" id="Filé com cheddar">Filé com cheddar</div>
+            <div><input type="checkbox" name="Portuguesa" id="Portuguesa">Portuguesa</div>
+            <div><input type="checkbox" name="Marguerita" id="Marguerita">Margherita</div>
+            <div><input type="checkbox" name="Lombinho" id="Lombinho">Lombinho</div>
         </div>
-        <button class="button-3" role="button">Fazer pedido</button>
+        <button class="button-3" role="button" onclick="pedido()">Fazer pedido</button>
     </div>
     <footer>
-        <div id="leftFooter"><p>© Copyright 2022</p></div>
-        <div id="rightFooter"><p>Sanny Belisário & Wesley Hanauer</p></div>
-      </footer>
+        <div id="leftFooter">
+            <p>© Copyright 2022</p>
+        </div>
+        <div id="rightFooter">
+            <p>Sanny Belisário & Wesley Hanauer</p>
+        </div>
+    </footer>
 </body>
+<script>
+    function pedido() {
+        checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        //console.log(checkboxes[0].id);
+        sabores = []
+        for (i = 0; i < checkboxes.length; i++) {
+            sabores[i] = checkboxes[i].id
+        }
+        //console.log(sabores)
+        selectM = document.querySelector('#massa')
+        var massa = selectM.options[selectM.selectedIndex].text
+        console.log(massa);
+        selectB = document.querySelector('#borda')
+        var borda = selectB.options[selectB.selectedIndex].text
+        console.log(borda);
+        cookie = document.cookie.split(';')
+        console.log(cookie)
+        usuario = cookie[1].split('=')
+        user = usuario[1]
+        console.log(user)
+        if (sabores.length > 3) {
+            alert('Escolha apenas 3 sabores')
+        } else {
+            if (sabores.length == 3) {
+                axios.post('/pedido-tres', {
+                    sabores, massa, borda, user
+                }).then(response => {
+                    if (response.data.erro) {
+                        return alert(response.data.erro)
+                    } else {
+                        window.location.href = '/menu';
+                        alert('Obrigada pelo seu pedido!')
+                        console.log('Pedido feito')
+                    }
+                })
+            } else if (sabores.length == 2) {
+                axios.post('/pedido-dois', {
+                    sabores, massa, borda, user
+                }).then(response => {
+                    if (response.data.erro) {
+                        return alert(response.data.erro)
+                    } else {
+                        window.location.href = '/menu';
+                        alert('Obrigada pelo seu pedido!')
+                        console.log('Pedido feito')
+                    }
+                })
+            } else if (sabores.length == 1) {
+                axios.post('/pedido-um', {
+                    sabores, massa, borda, user
+                }).then(response => {
+                    if (response.data.erro) {
+                        return alert(response.data.erro)
+                    } else {
+                        window.location.href = '/menu';
+                        alert('Obrigada pelo seu pedido!')
+                        console.log('Pedido feito')
+                    }
+                })
+            }
+        }
+    }
+</script>
+
 </html>
