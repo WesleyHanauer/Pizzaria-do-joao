@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
     <meta name="author" content="Wesley Hanauer & Sanny Belisário">
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-	<link rel="stylesheet" href="css/login.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/login.css" type="text/css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
-<script></script>
+
 <body>
-	<div class="wrapper">
+    <div class="wrapper">
         <div class="logo">
-            <img src="imagens/pizza.png" alt="">
+            <img src="/pizza.png" alt="">
         </div>
         <div class="text-center mt-4 name">
             Pizzaria do João
@@ -20,14 +22,42 @@
         <form class="p-3 mt-3">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" name="email" id="Email" placeholder="Email">
+                <input type="text" name="email" id="email" placeholder="Email">
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
                 <input type="password" name="senha" id="senha" placeholder="Senha">
             </div>
-            <button class="btn mt-3">Logar</button>
+            <button class="btn mt-3" onclick="logar()">Logar</button>
         </form>
     </div>
 </body>
+<script type="text/javascript">
+    function logar() {
+        email = document.querySelector('#email').value
+        senha = document.querySelector('#senha').value
+
+        if (!email || !senha) {
+            return alert('Por favor, preencher todos os campos')
+        }
+
+        axios.post('/user/login', {
+            email, senha
+        }).then(response => {
+            if (response.data.erro) {
+                return alert(response.data.erro)
+            } else {
+                if (response.data.user['id'] == 1) {
+                    window.location.href = '/rastreamento'
+                } else {
+                    window.location.href = '/menu'
+                }
+                console.log('logou')
+            }
+        }).catch(erro => {
+            return alert(response.data.erro)
+        })
+    }
+</script>
+
 </html>
